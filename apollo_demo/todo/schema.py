@@ -1,7 +1,9 @@
-from graphene import Field
+from graphene import relay
+from graphene_django.filter import DjangoFilterConnectionField
+
 from .types import TodoNoteType
 
 
 class TodoQueries():
-    # todo_notes = relay.Node.Field(CategoryNode)
-    todo_notes = Field(TodoNoteType)
+    todo_note = relay.Node.Field(TodoNoteType)
+    todo_notes = DjangoFilterConnectionField(TodoNoteType)
